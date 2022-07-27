@@ -9,6 +9,10 @@ except ImportError:
 
 
 def zip_downloader():
+    """
+    Function to download any zip file from the url passed in the 1st argument and
+    extracted in the folder specified in 2nd argument to the script.
+    """
     zip_url = sys.argv[1]
     zip_folder = sys.argv[2]
     new_file_name = zip_url.split("/")[-1]
@@ -18,7 +22,7 @@ def zip_downloader():
         extract_dir=zip_folder,
         format="zip",
     )
-    os.system(f"del {zip_folder}\*.zip")
+    os.system(f"del {zip_folder}\*.zip") # Clean up
     print(
         f"{new_file_name} is successfully downloaded and extracted inside {zip_folder} folder"
     )
